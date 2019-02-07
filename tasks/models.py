@@ -17,7 +17,9 @@ class Task(models.Model):
     )
     task_id = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
-    status = models.CharField(max_length=255, choices=STATUS_CHOICES)
+    status = models.CharField(
+        max_length=255, choices=STATUS_CHOICES, default=NEW
+    )
     response_length = models.PositiveSmallIntegerField(
         "Response content length", default=0
     )
