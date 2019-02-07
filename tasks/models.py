@@ -15,6 +15,7 @@ class Task(models.Model):
         (COMPLETED, 'COMPLETED'),
         (ERROR, 'ERROR'),
     )
+    task_id = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
     status = models.CharField(max_length=255, choices=STATUS_CHOICES)
     response_length = models.PositiveSmallIntegerField(
@@ -23,4 +24,4 @@ class Task(models.Model):
     response_status = models.PositiveSmallIntegerField(
         "Response content status", default=0
     )
-    response_body = models.TextField("Response content body")
+    response_body = models.TextField("Response content body", default=None)
