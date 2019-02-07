@@ -26,4 +26,4 @@ class Task(models.Model):
     response_status = models.PositiveSmallIntegerField(
         "Response content status", default=0
     )
-    response_body = models.TextField("Response content body", default=None)
+    response_body = models.TextField("Response content body", default='')
