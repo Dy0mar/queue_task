@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form class="form-signin js-form">
+		<div class="text-center mb-4">
+			<h1 class="h3 mb-3 font-weight-normal">Enter url</h1>
+			<p>url will be passed as json</p>
+		</div>
+
+		<div class="form-label-group">
+			<input type="text" id="url" name="url" class="form-control" placeholder="URL" required autofocus>
+			<label for="url">Url</label>
+		</div>
+
+		<button id="js-submit" class="btn btn-lg btn-primary btn-block" type="button">Send</button>
+	</form>
+{% endblock content %}
+
+{% block scripts %}
+	{{ block.super }}
+
+	<script>
+		$(function () {
+		    $('#js-submit').on('click', function () {
+
+				var form = $('.js-form');
+				var url = "{% url 'send' %}";
+				var data = form.serialize();
+				$.ajax({
+				    url: url,
+					type: 'POST',
+					dataType : 'json',
+					data: data
+				})
+            });
+		})
+	</script>
+
+{% endblock scripts %}
