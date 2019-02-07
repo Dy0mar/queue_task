@@ -2,7 +2,7 @@
 
 import time
 
-from queue_task.celery_app import app
+from queue_task.celery import app
 
 
 @app.task(bind=True)
