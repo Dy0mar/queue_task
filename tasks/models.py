@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Task(models.Model):
     NEW = 1
@@ -27,3 +25,8 @@ class Task(models.Model):
         "Response content status", default=0
     )
     response_body = models.TextField("Response content body", default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-pk']
