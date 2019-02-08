@@ -1,0 +1,1 @@
+# Example Celery with Redis
