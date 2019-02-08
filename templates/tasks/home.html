@@ -8,7 +8,9 @@
 		</div>
 
 		<div class="form-label-group">
-			<input type="text" id="url" name="url" class="form-control" placeholder="URL" required autofocus>
+			<input type="text" id="url" name="url" class="form-control" placeholder="URL" required autofocus
+				   value="https://wakatime.com/@baf9dc10-2145-4cfa-8c03-b6b8c38ae6c5/projects/tlsqctjiwk?start=2019-02-01&end=2019-02-07"
+			>
 			<label for="url">Url</label>
 		</div>
 
@@ -30,7 +32,12 @@
 				    url: url,
 					type: 'POST',
 					dataType : 'json',
-					data: data
+					data: data,
+					success: function (data) {
+				        console.log(data.task_id),
+				        console.log(data.active),
+				        console.log(data.reserved)
+                    }
 				})
             });
 		})

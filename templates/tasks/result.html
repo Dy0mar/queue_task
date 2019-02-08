@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% if task %}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-3">
+				<h1>Task info</h1>
+					<ul class="list-group">
+						<li class="list-group-item">task_id - {{ task.task_id }}</li>
+						<li class="list-group-item">task url - {{ task.url }}</li>
+						<li class="list-group-item">task status - {{ task.status }}</li>
+						<li class="list-group-item">task response length - {{ task.response_length }}</li>
+						<li class="list-group-item">task response status - {{ task.response_status }}</li>
+					</ul>
+				</div>
+				{{ task.response_body|escape|truncatechars_html:50 }}
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock content %}
